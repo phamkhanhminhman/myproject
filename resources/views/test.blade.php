@@ -70,6 +70,24 @@
 								</div>
 							</a>
 						</div>
+						<div class="col-md-4 ftco-animate">
+							<a href="https://phamkhanhminhman.github.io/gallery/images/2.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(https://phamkhanhminhman.github.io/gallery/images/2.jpg);">
+								<div class="overlay"></div>
+								<div class="text text-center">
+									<h3>Work 01</h3>
+									<span class="tag">Model</span>
+								</div>
+							</a>
+						</div>
+						<div class="col-md-4 ftco-animate">
+							<a href="https://phamkhanhminhman.github.io/gallery/images/5.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(https://phamkhanhminhman.github.io/gallery/images/5.jpg);">
+								<div class="overlay"></div>
+								<div class="text text-center">
+									<h3>Work 01</h3>
+									<span class="tag">Model</span>
+								</div>
+							</a>
+						</div>
 			<!-- 			<div class="col-md-4 ftco-animate">
 							<a href="images/2.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(images/2.jpg);">
 								<div class="overlay"></div>
@@ -203,8 +221,8 @@
 	            	<h2 class="ftco-heading-2">Have a Questions?</h2>
 	            	<div class="block-23 mb-3">
 		              <ul>
-		                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-		                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+		                <li><span class="icon icon-map-marker"></span><span class="text">VN</span></li>
+		                <li><a href="#"><span class="icon icon-phone"></span><span class="text">0912345678</span></a></li>
 		                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
 		              </ul>
 		            </div>
@@ -215,7 +233,7 @@
 	          <div class="col-md-12">
 
 	            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-	  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+	  Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">PKMM 2019</a>
 	  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 	          </div>
 	        </div>
