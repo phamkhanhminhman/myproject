@@ -9,6 +9,6 @@ class testController extends Controller
 {
     public function test()
     {
-    	dd(DB::connection()->getDatabaseName());
+    	return view('test');
     }
 }
