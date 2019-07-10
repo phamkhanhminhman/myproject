@@ -62,7 +62,7 @@
 				<div class="photograhy">
 					<div class="row no-gutters">
 						<div class="col-md-4 ftco-animate">
-							<a href="images/4.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(images/4.jpg);">
+							<a href="https://phamkhanhminhman.github.io/gallery/images/1.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(https://phamkhanhminhman.github.io/gallery/images/1.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
 									<h3>Work 01</h3>
