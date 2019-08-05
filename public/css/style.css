@@ -7498,7 +7498,7 @@ h1, h2, h3, h4, h5,
     font: bold 14px/.4 Helvetica;
     text-transform: uppercase;
     text-indent: -55px;
-    background: #000000;
+    background: white;
     -webkit-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out; }
@@ -7506,7 +7506,7 @@ h1, h2, h3, h4, h5,
       content: '';
       width: 30px;
       height: 2px;
-      background: #000000;
+      background: white ;
       position: absolute;
       left: 0;
       -moz-transition: all 0.2s ease;
@@ -8584,3 +8584,8 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+.border-block {
+  border-radius:10px; 
+  border: 1px black solid;
+}

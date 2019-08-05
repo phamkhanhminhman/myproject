@@ -9,7 +9,8 @@ class testController extends Controller
 {
     public function test()
     {
-    	return view('test');
-    	// https://phamkhanhminhman.github.io/gallery/images/1.jpg
+    	$test = DB::table('test')->get();
+    	// dd($test);
+    	return view('test', compact('test'));
     }
 }
