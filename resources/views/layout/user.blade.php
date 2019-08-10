@@ -26,6 +26,7 @@
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet">
 </head>
 <body ng-app="myApp" ng-controller="MyController">
 	<div id="colorlib-page">
@@ -34,14 +35,14 @@
 			<h1 id="colorlib-logo"><a href="index.html"><span class="flaticon-camera"></span>Capture</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li class="colorlib-active"><a href="index.html">Home</a></li>
+					<li class="colorlib-active"><a href="{{url('home')}}">Home</a></li>
 					<li><a href="{{url('uploadIMG')}}">Upload</a></li>
 					<li><a href="gallery.html">Gallery</a></li>
 					<li><a href="about.html">About</a></li>
 					<li><a href="blog.html">Blog</a></li>
 					<li><a href="contact.html">Contact</a></li>
-					<!-- <input type="text" name="" ng-model="abc" placeholder="123">
-					<h2>@{{abc}}</h2> -->
+					<input type="text" name="" ng-model="abc" placeholder="123">
+					<h2>@{{abc}}</h2>
 				</ul>
 			</nav>
 
@@ -57,75 +58,7 @@
 				</div>
 			</div>
 		</aside> <!-- END COLORLIB-ASIDE -->
-		<div id="colorlib-main">
-			<section class="ftco-section-2">
-				<div class="photograhy">
-					<div class="row no-gutters">
-						<?php foreach ($test as $p): ?>
-							<div class="col-md-4 ftco-animate">
-								<a href="{{$p->name}}" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url({{$p->name}});">
-									<div class="overlay"></div>
-									<div class="text text-center">
-										<h3>Work 01</h3>
-										<span class="tag">Model</span>
-									</div>
-								</a>
-							</div>
-						<?php endforeach?>
-					</div>
-				</div>
-			</section>
-			<footer class="ftco-footer ftco-bg-dark ftco-section">
-				<div class="container px-md-5">
-					<div class="row mb-5">
-						<div class="col-md">
-							<div class="ftco-footer-widget mb-4 ml-md-4">
-								<h2 class="ftco-heading-2">Category</h2>
-								<ul class="list-unstyled categories">
-									<li><a href="#">Photography <span>(6)</span></a></li>
-									<li><a href="#">Fashion <span>(8)</span></a></li>
-									<li><a href="#">Technology <span>(2)</span></a></li>
-									<li><a href="#">Travel <span>(2)</span></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md">
-							<div class="ftco-footer-widget mb-4">
-								<h2 class="ftco-heading-2">Archives</h2>
-								<ul class="list-unstyled categories">
-									<li><a href="#">November 2018 <span>(105)</span></a></li>
-									<li><a href="#">October 2018 <span>(212)</span></a></li>
-									<li><a href="#">September 2018 <span>(150)</span></a></li>
-									<li><a href="#">August 2018 <span>(100)</span></a></li>
-									<li><a href="#">July 2018 <span>(200)</span></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md">
-							<div class="ftco-footer-widget mb-4">
-								<h2 class="ftco-heading-2">Have a Questions?</h2>
-								<div class="block-23 mb-3">
-									<ul>
-										<li><span class="icon icon-map-marker"></span><span class="text">VN</span></li>
-										<li><a href="#"><span class="icon icon-phone"></span><span class="text">0912345678</span></a></li>
-										<li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-
-							<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">PKMM 2019</a>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-							</div>
-						</div>
-					</div>
-				</footer>
-			</div><!-- END COLORLIB-MAIN -->
-		</div><!-- END COLORLIB-PAGE -->
+		@yield('content')
 
 		<!-- loader -->
 		<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -155,7 +88,9 @@
 		<script src="js/angular-material.min.js"></script>
 		<script src="js/angular-messages.min.js"></script>
 		<script src="js/angular-route.min.js"></script>
+		<script src="js/dropzone.js"></script>
 		<script src="js/1.js"></script>
+
 
 	</body>
 	</html>
