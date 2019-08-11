@@ -40,6 +40,7 @@ class testController extends Controller {
 			[
 				'name' => $name,
 				'size' => $size,
+				'username' => $request->session()->get('username'),
 			]);
 		// foreach ($anh as $key) {
 		// 	$import = DB::table('test')->insert(

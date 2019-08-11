@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\checklogin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,14 +12,22 @@
 |
  */
 
-Route::get('/', function () {
-	return view('welcome');
+Route::get('/', 'user\loginController@login');
+
+Route::post('/sign-in', 'user\loginController@signin');
+
+Route::get('/sign-out', 'user\loginController@signOut');
+
+Route::group(['middleware'=>'checklogin'], function () {
+
+	Route::get('/test', 'testController@test');
+
+	Route::get('/upload-photos', 'testController@upload');
+
+	Route::post('/import-image', 'testController@import');
+
+	Route::get('/home', 'testController@home');
 });
 
-Route::get('/test', 'testController@test');
 
-Route::get('/uploadIMG', 'testController@upload');
 
-Route::post('/import-image', 'testController@import');
-
-Route::get('/home', 'testController@home');

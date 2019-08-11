@@ -32,20 +32,21 @@
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-			<h1 id="colorlib-logo"><a href="index.html"><span class="flaticon-camera"></span>Capture</a></h1>
+			<h1 id="colorlib-logo"><a href="{{url('home')}}"><span class="flaticon-camera"></span>Capture</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
 					<li class="colorlib-active"><a href="{{url('home')}}">Home</a></li>
-					<li><a href="{{url('uploadIMG')}}">Upload</a></li>
-					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="{{url('upload-photos')}}">Upload</a></li>
+					<!-- li><a href="gallery.html">Gallery</a></li>
 					<li><a href="about.html">About</a></li>
 					<li><a href="blog.html">Blog</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<input type="text" name="" ng-model="abc" placeholder="123">
-					<h2>@{{abc}}</h2>
+					<li><a href="contact.html">Contact</a></li> -->
+					<li><a href="{{url('sign-out')}}">Sign Out</a></li>
+					<!-- <input type="text" name="" ng-model="abc" placeholder="123">
+					<h2>@{{abc}}</h2> -->
 				</ul>
 			</nav>
-
+			
 			<div class="colorlib-footer">
 				<h3>Follow Us Here!</h3>
 				<div class="d-flex justify-content-center">
@@ -75,11 +76,11 @@
 		<script src="js/jquery.magnific-popup.min.js"></script>
 		<script src="js/aos.js"></script>
 		<script src="js/jquery.animateNumber.min.js"></script>
-		<script src="js/bootstrap-datepicker.js"></script>
-		<script src="js/jquery.timepicker.min.js"></script>
+		<!-- <script src="js/bootstrap-datepicker.js"></script>
+		<script src="js/jquery.timepicker.min.js"></script> -->
 		<script src="js/scrollax.min.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-		<script src="js/google-map.js"></script>
+		<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+		<script src="js/google-map.js"></script> -->
 		<script src="js/main.js"></script>
 
 		<script src="js/angular-1.5.min.js"></script>

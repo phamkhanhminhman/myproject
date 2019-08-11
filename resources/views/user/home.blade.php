@@ -10,8 +10,8 @@
 						<a href="{{$p->name}}" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url({{$p->name}});">
 							<div class="overlay"></div>
 							<div class="text text-center">
-								<h3>Work 01</h3>
-								<span class="tag">Model</span>
+								<h3>{{$p->id}}</h3>
+								<span class="tag">{{$p->username}}</span>
 							</div>
 						</a>
 					</div>
