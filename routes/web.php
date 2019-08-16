@@ -29,5 +29,7 @@ Route::group(['middleware'=>'checklogin'], function () {
 	Route::get('/home', 'testController@home');
 });
 
+Route::get('/admin', 'admin\dashboardController@test');
+
 
 
