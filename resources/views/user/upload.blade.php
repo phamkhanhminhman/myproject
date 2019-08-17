@@ -19,6 +19,8 @@
 			@csrf
 		<!-- <input multiple="multiple" name="photos[]" type="file">
 			<button class="btn btn-primary" type="submit">submit</button> -->
+			
+			<a href="{{url('home')}}" class="btn btn-primary">Upload</a>
 		</form>
 	</section>
 </div>

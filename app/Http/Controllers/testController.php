@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use DB;
+Use Alert;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
+
 
 class testController extends Controller {
 
@@ -29,6 +31,7 @@ class testController extends Controller {
 		return view('test', compact('test'));
 	}
 	public function upload() {
+
 		return view('user/upload');
 	}
 
@@ -53,6 +56,7 @@ class testController extends Controller {
 				'size' => $size,
 				'username' => $request->session()->get('username'),
 			]);
+
 		//Resize 
 		if ($width < 2000 || $height < 2000) {
 			$img = Image::make('images/'.$file->getClientOriginalName())->resize($width/2, $height/2);
@@ -61,5 +65,7 @@ class testController extends Controller {
 			$img = Image::make('images/'.$file->getClientOriginalName())->resize($width/4, $height/4);
 			$img->save(public_path('./images/resize' .$file->getClientOriginalName()));
 		}
+		alert('Uploaded','Successfully', 'success');
+		
 	}
 }
