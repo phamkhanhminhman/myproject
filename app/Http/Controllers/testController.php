@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use DB;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class testController extends Controller {
 
 	public function home() {
 
-		$test = DB::table('test')->where('size', '<', '2097152')->orWhere('size', null)->get();
+		$test = DB::table('test')->get();
 		return view('user/home', compact('test'));
+
 	}
 	public function test() {
 
@@ -32,24 +34,28 @@ class testController extends Controller {
 
 	public function import(Request $request) {
 
-		$file = $request->file('file');
+		$file = $request->file('file'); 
+		$data = getimagesize($file);
+
+ 		$width = $data[0];
+		$height = $data[1];
+
 		$name = 'images/' . $file->getClientOriginalName();
 		$size = $file->getClientSize();
+
+		// $file->move('./images/resize', $name);
 		$file->move('./images/', $name);
+
+
 		$import = DB::table('test')->insert(
 			[
-				'name' => $name,
+				'name' => 'images/'.'resize'. $file->getClientOriginalName(),
 				'size' => $size,
 				'username' => $request->session()->get('username'),
 			]);
-		// foreach ($anh as $key) {
-		// 	$import = DB::table('test')->insert(
-		// 		[
-		// 			'name' => $key,
-		// 		]);
+		//Resize 
+		$img = Image::make('images/'.$file->getClientOriginalName())->resize($width/4, $height/4);
+		$img->save(public_path('./images/resize' .$file->getClientOriginalName()));
 
-		// }
-		// return redirect('test');
-		// $typeImage = $file->getClientOriginalExtension();
 	}
 }
