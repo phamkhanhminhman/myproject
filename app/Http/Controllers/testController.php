@@ -54,8 +54,12 @@ class testController extends Controller {
 				'username' => $request->session()->get('username'),
 			]);
 		//Resize 
-		$img = Image::make('images/'.$file->getClientOriginalName())->resize($width/4, $height/4);
-		$img->save(public_path('./images/resize' .$file->getClientOriginalName()));
-
+		if ($width < 2000 || $height < 2000) {
+			$img = Image::make('images/'.$file->getClientOriginalName())->resize($width/2, $height/2);
+			$img->save(public_path('./images/resize' .$file->getClientOriginalName()));
+		} else {
+			$img = Image::make('images/'.$file->getClientOriginalName())->resize($width/4, $height/4);
+			$img->save(public_path('./images/resize' .$file->getClientOriginalName()));
+		}
 	}
 }
