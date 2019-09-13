@@ -31,5 +31,7 @@ Route::group(['middleware'=>'checklogin'], function () {
 
 Route::get('/admin', 'admin\dashboardController@test');
 
+Route::get('/test2', 'testController@getListAlbums');
+
 
 

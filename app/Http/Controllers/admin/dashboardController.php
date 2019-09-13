@@ -9,8 +9,10 @@ class dashboardController
 {
 
 	public function test()
-	{
-		return view('admin/dashboard');
+	{	
+		$test = DB::table('test')->get();
+		$users = DB::table('users')->get();
+		return view('admin/dashboard', compact('test', 'users'));
 	}
 	
 }
