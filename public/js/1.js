@@ -6,7 +6,19 @@ app.controller('MyController', function ($scope, $http, $mdToast) {
         'url': 'images/image_1.jpg'
     }, {
         'url': 'images/image_2.jpg'
-    },{'url': 'images/image_2.jpg'},{'url': 'images/image_2.jpg'},{'url': 'images/image_2.jpg'},{'url': 'images/image_2.jpg'},{'url': 'images/image_2.jpg'},{'url': 'images/image_2.jpg'}]
+    }, {
+        'url': 'images/image_2.jpg'
+    }, {
+        'url': 'images/image_2.jpg'
+    }, {
+        'url': 'images/image_2.jpg'
+    }, {
+        'url': 'images/image_2.jpg'
+    }, {
+        'url': 'images/image_2.jpg'
+    }, {
+        'url': 'images/image_2.jpg'
+    }]
     console.log('test controler');
     console.log($scope.all);
 

@@ -79,7 +79,6 @@ class testController extends Controller {
 			'https://www.googleapis.com/auth/photoslibrary',
 			'https://www.googleapis.com/auth/photoslibrary.readonly',
 			'https://www.googleapis.com/auth/photoslibrary.readonly.appcreateddat',
-
 		];
 
 		$client = new Google_Client(); // khởi tạo Google Client
@@ -91,23 +90,23 @@ class testController extends Controller {
 		$client->setAccessType('offline'); // không rõ lắm nên cứ để vậy đi :">
 
 		$auth_url = $client->createAuthUrl();
-		// header('Location: http://www.freetuts.net/');
+
 
 		header('Location: ' . filter_var($auth_url, FILTER_SANITIZE_URL));
-		dd('1');
+
+
+		dd(1);
+		$client->authenticate($_GET['code']);
+
+		$access_token = $client->getAccessToken();
+
+
+		dd($access_token);
+
+		
 
 			
-		// return $auth_url;
-
-
-
-
-
-
-
-
-
-
+		// return $auth_ur
 
 
 
@@ -159,5 +158,109 @@ class testController extends Controller {
 
 		// $client = new Google_Client();
 		// dd($client);
+	}
+
+	public function getAccessTokenPhotos() 
+	{
+
+		session_start();
+		
+		$scopesPhotos = [
+			'https://www.googleapis.com/auth/photoslibrary',
+			'https://www.googleapis.com/auth/photoslibrary.readonly',
+			'https://www.googleapis.com/auth/photoslibrary.readonly.appcreateddat',
+		];
+
+		$client = new Google_Client();
+		$client->setAuthConfig('./ClientID - PKMM.json');
+		// $client->addScope(\Google_Service_Drive::DRIVE_METADATA_READONLY);
+		$client->addScope($scopesPhotos);
+
+		if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
+
+		  $client->setAccessToken($_SESSION['access_token']);
+
+		  $access_token =  $client->getAccessToken()['access_token'];
+	
+
+		  $authCredentials = new UserRefreshCredentials(
+			$scopesPhotos,
+			[
+				'client_id' => '701132481011-u3nq1lfn7aenv3svjab0dobqe2se7tot.apps.googleusercontent.com',
+				'client_secret' => '8lrvysKx4KEnJz_dPI2OWtxM',
+				'refresh_token' => $access_token,
+			]
+		);
+
+		$photosLibraryClient = new PhotosLibraryClient(['credentials' => $authCredentials]);
+		$response = $photosLibraryClient->listSharedAlbums();
+
+		$arrUrl = [];
+		$arrCoverPhotoBaseUrl = [];
+		foreach ($response->iterateAllElements() as $item) {
+			$id = $item->getId();
+			// $description = $item->getDescription();
+			// $mimeType = $item->getMimeType();
+			$productUrl = $item->getProductUrl();
+			$coverPhotoBaseUrl = $item->getCoverPhotoBaseUrl();
+
+			$arrCoverPhotoBaseUrl[] = $coverPhotoBaseUrl;
+			// $filename = $item->getFilename();
+			$arrUrl[] = $productUrl;
+		}
+
+		// dd($arrCoverPhotoBaseUrl);
+		return view('test2', compact('arrCoverPhotoBaseUrl'));
+		dd($arrUrl);
+
+
+
+
+		  $drive = new \Google_Service_Drive($client);
+		  $files = $drive->files->listFiles(array())->getItems();
+		  echo json_encode($files);
+		} else {
+		  $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/callback';
+
+		  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+		  dd('1');
+		  $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+		  dd($actual_link);
+		} 
+	}
+
+
+
+
+	
+	public function callback()
+	{
+		session_start();
+
+		$scopes = [
+			'https://www.googleapis.com/auth/photoslibrary',
+		];
+
+
+		$client = new Google_Client();
+		$client->setAuthConfigFile('./ClientID - PKMM.json');
+		$client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/callback');
+		$client->addScope(\Google_Service_Drive::DRIVE_METADATA_READONLY);
+		$client->addScope($scopes);
+
+		if (! isset($_GET['code'])) {
+		  $auth_url = $client->createAuthUrl();
+		  header('Location: ' . filter_var($auth_url, FILTER_SANITIZE_URL));
+		  var_dump(12345);
+		  dd(123);
+
+		} else {
+		  $client->authenticate($_GET['code']);
+		  $_SESSION['access_token'] = $client->getAccessToken();
+		  $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/';
+		  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+		  var_dump(23456);
+		  dd(23456);
+		}
 	}
 }
